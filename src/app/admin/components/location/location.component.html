@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <h3 class="item-from-place">{{pageTitle}}</h3>
+            <form [formGroup]="locationForm" (ngSubmit)="onSubmit()" novalidate="novalidate" #myForm>
+                <div class="form-group text-right">
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{config.place}}" type="text" formControlName="place" (keyup)="onKeyUp($event)"
+                            [(ngModel)]="location.place" [ngClass]="{ 'is-invalid': submitted && f.place.errors }">
+                    </mat-form-field>
+
+                    <div *ngIf="submitted && f.place.errors" class="invalid-feedback">
+                        <div *ngIf="f.place.errors.required">{{config.titleReqiuerdText}}</div>
+                    </div>
+                    
+                    <div *ngIf="isAllreadyExsist" class="invalid-feedback">
+                        <div *ngIf="isAllreadyExsist">שם מוצר או קוד כבר קיים</div>
+                    </div>
+                </div>              
+
+                <div class="form-group text-right">
+                    <button mat-flat-button color="primary" [disabled]="isAllreadyExsist">{{btnText}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

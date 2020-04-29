@@ -1,0 +1,77 @@
+<div class="grid-wrapper">
+    <div class="row">
+        <div class="col">
+            <h2 class="grid-main-title">המשימות שלי</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3 offset-md-9">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="סינון">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button class="add-item-btn" mat-button (click)="addTodo()" mat-flat-button color="primary">הוספת
+                משימה</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="mat-elevation-z8">
+                <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                    <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>מזהה ייחודי</mat-header-cell>
+                        <mat-cell *matCellDef="let todo">{{todo.id}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="title">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>כותרת</mat-header-cell>
+                        <mat-cell *matCellDef="let todo">{{todo.title}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="description">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>תיאור</mat-header-cell>
+                        <mat-cell *matCellDef="let todo">{{todo.description}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="fromDate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>מתאריך</mat-header-cell>
+                        <mat-cell *matCellDef="let todo">{{todo.fromDate}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="toDate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>עד תאריך</mat-header-cell>
+                        <mat-cell *matCellDef="let todo">{{todo.toDate}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="isDone">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header class="mat-header-cell">האם בוצע
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let todo">{{todo.isDone == true ? 'בוצע': 'לא בוצע'}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header class="mat-header-cell">פעולות
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let todo">
+                            <button mat-flat-button (click)="updateTodo(todo)">עריכה</button>|
+                            <button mat-flat-button color="warn" (click)="confirmDelete(todo)">מחיקה</button>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+                </mat-table>
+
+                <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                    (page)="pageEvent = $event">
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

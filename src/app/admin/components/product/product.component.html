@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <h3 class="item-from-title">{{pageTitle}}</h3>
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()" novalidate="novalidate" #myForm>
+                <div class="form-group text-right">
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="{{config.title}}" type="text" formControlName="title" (keyup)="onKeyUp($event,'title')"
+                            [(ngModel)]="product.title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                    </mat-form-field>
+
+                    <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                        <div *ngIf="f.title.errors.required">{{config.titleReqiuerdText}}</div>
+                    </div>
+                    
+                    <div *ngIf="isAllreadyExsist" class="invalid-feedback">
+                        <div *ngIf="isAllreadyExsist">שם מוצר או קוד כבר קיים</div>
+                    </div>
+                </div>
+                <div class="form-group text-right">
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="{{config.code}}" formControlName="code" (keyup)="onKeyUp($event,'code')"
+                            [(ngModel)]="product.code"
+                            [ngClass]="{ 'is-invalid': submitted && f.code.errors }"></textarea>
+                    </mat-form-field>
+
+                    <div *ngIf="submitted && f.code.errors" class="invalid-feedback">
+                        <div *ngIf="f.code.errors.required">{{config.codeReqiuerdText}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group text-right">
+                    <mat-form-field>
+                        <input matInput placeholder="{{config.count}}" type="number" formControlName="count"
+                            [(ngModel)]="product.count" [ngClass]="{ 'is-invalid': submitted && f.count.errors }">
+                    </mat-form-field>
+
+                    <div *ngIf="submitted && f.count.errors" class="invalid-feedback">
+                        <div *ngIf="f.count.errors.required">{{config.countReqiuerdText}}</div>
+                        <div *ngIf="f.count.errors?.minLength && f.count.errors.required == null">{{config.countOverZeroText}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group text-right">
+                    <mat-form-field>
+                        <input matInput placeholder="{{config.unitPrice}}" type="number" formControlName="unitPrice"
+                            [(ngModel)]="product.unitPrice"
+                            [ngClass]="{ 'is-invalid': submitted && f.unitPrice.errors }">
+                    </mat-form-field>
+
+                    <div *ngIf="submitted && f.unitPrice.errors" class="invalid-feedback">
+                        <div *ngIf="f.unitPrice.errors.required">{{config.unitPriceReqiuerdText}}'</div>
+                        <div *ngIf="f.unitPrice.errors?.minLength && f.unitPrice.errors.required == null">{{config.countOverZeroText}}</div>
+                    </div>
+                </div>
+
+                <div class="form-group text-right">
+                    <button mat-flat-button color="primary" [disabled]="isAllreadyExsist">{{btnText}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

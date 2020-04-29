@@ -1,0 +1,91 @@
+h1.section-main-title {
+  text-align: right;
+  padding: 1em 0em 1em 0em;
+}
+button#search-btn {
+  background: url("../../../../assets/icons/Magnifying_glass_Icon.png") no-repeat scroll 0 0 transparent;
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  padding-bottom: 2px;
+  width: 45px;
+  background-size: 26px;
+  height: 37px;
+  background-color: transparent;
+  border-radius: 0px 5px 5px 0px;
+  background-position: 9px 7px;
+  position: absolute;
+  right: 16px;
+}
+
+select#drpSearchBy,
+input#txtSearchTextm,
+.mat-header-cell,
+.mat-header-cell,
+mat-cell.mat-cell {
+  direction: rtl;
+}
+
+mat-row.mat-row:nth-child(odd) {
+  background: #e0e0e0;
+}
+
+mat-row.mat-row:hover {
+  background-color:   #ccc;
+  text-shadow: 0px 0px 30px  #ccc;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+input#txtSearchText {
+  direction: rtl;
+  text-indent: 35px;
+}
+
+table {
+  width: 100%;
+}
+
+mat-header-row.mat-header-row {
+  background-color: #347ab6;
+}
+
+mat-header-cell.mat-header-cell {
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+}
+mat-cell.mat-cell{
+  font-size: 15px;
+}
+
+th.mat-sort-header-sorted {
+  color: pink !important;
+}
+
+::ng-deep  .mat-sort-header-arrow{
+  color: white;
+}
+
+.mat-form-field-label-wrapper {
+  text-align: right;
+}
+.mat-form-field {
+  text-align: right;
+  float: right;
+}
+
+h2.grid-main-title {
+  text-align: right;
+  padding: 1em 0em;
+  color: #3f51b5;
+}
+
+button.add-item-btn {
+  float: right;
+  margin: 1em 0em;
+}

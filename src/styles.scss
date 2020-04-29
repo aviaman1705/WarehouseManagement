@@ -1,0 +1,108 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h3.item-from-title {
+    text-align: right;
+}
+
+input.form-control{
+    direction: rtl;
+}
+.invalid-feedback {
+    display: inline-block !important;
+    color:red;
+}
+
+.mat-form-field {
+    text-align: right !important;
+    width: 100%;
+    direction: rtl !important;
+}
+.grid-wrapper {
+     margin: 0em 0em 3em 0em; 
+}
+
+ul#top-navbar {
+    margin-right: auto!important;
+    margin-left: 0 !important;
+}
+div.brand-text.font-weight-light{
+  right:0;
+  bottom:0;
+  text-align:right;
+}
+
+a.btn.btn-primary.add-btn {
+    float: right;
+    margin: 0% 0% 1% 0%;
+}
+
+th.thead-td-item,td.tbody-td-item {
+    text-align: right;
+}
+a.grid-item-edit-btn.btn.btn-info {
+    margin: 0% 0% 0% 1%;
+}
+tr.tbody-tr-item:hover {
+    background-color: #9da5ad;
+}
+
+input[type="search"] {
+    display: inline-block;
+    width: 80%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin: 0px 10px;
+}
+
+select {
+    display: inline-block;
+    width: 55%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+a.paginate_button.current {
+    background: linear-gradient(to bottom, white 0%, #ddd 100%) !important;
+}
+
+.page-header {
+    margin: 10px 0 10px !important;
+}
+
+button.btn.btn-primary.add-item-btn {
+    margin: 0px 0px 10px 0px;
+}
+
+button.add-item-btn{
+    background-color: #337ab7;
+    color: white;
+}
+
+

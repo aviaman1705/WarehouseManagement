@@ -1,0 +1,64 @@
+<!-- main app container -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="item-from-title">{{config.addMissinText}}</h3>
+                <form [formGroup]="newToDoForm" (ngSubmit)="onSubmit()" novalidate="novalidate">
+                    <div class="form-group text-right">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="{{config.title}}" type="text" formControlName="title"
+                                [(ngModel)]="newTodoItem.title"
+                                [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                        </mat-form-field>
+
+                        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                            <div *ngIf="f.title.errors.required">{{config.titleReqiuerdText}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <mat-form-field class="example-full-width">
+                            <textarea matInput placeholder="{{config.description}}" formControlName="description"
+                                [(ngModel)]="newTodoItem.description"
+                                [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+                        </mat-form-field>
+
+                        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                            <div *ngIf="f.description.errors.required">{{config.descReqiuerdText}}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-right">
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="pickerFrom" placeholder="{{config.chooseStartDate}}"
+                                formControlName="fromDate" [(ngModel)]="newTodoItem.fromDate" [min]="minDate" [matDatepicker]="picker"
+                                [ngClass]="{ 'is-invalid': submitted && f.fromDate.errors }">
+                            <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerFrom></mat-datepicker>
+                        </mat-form-field>
+
+                        <div *ngIf="submitted && f.fromDate.errors" class="invalid-feedback">
+                            <div *ngIf="f.fromDate.errors.required">{{config.dateReqiuerdText}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="pickerTo" placeholder="{{config.chooseFinishDate}}" [min]="newTodoItem.fromDate"
+                                formControlName="toDate" [(ngModel)]="newTodoItem.toDate"  
+                                [ngClass]="{ 'is-invalid': submitted && f.toDate.errors }">
+                            <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerTo></mat-datepicker>
+                        </mat-form-field>
+                        <div *ngIf="submitted && f.toDate.errors" class="invalid-feedback">
+                            <div *ngIf="f.toDate.errors.required">{{config.dateReqiuerdText}}</div>
+                            <div *ngIf="f.toDate.errors.equalValidator">{{config.dateMatchErrorText}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <button mat-flat-button color="primary">{{config.add}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
