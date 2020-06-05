@@ -25,7 +25,10 @@ export const environment = {
   count:'כמות',
   countOverZeroText:'הזן ספרה הגדולה מ-0',
   unitPrice:'מחיר ליחידה',
-  unitPriceReqiuerdText:'חובה להזין מחיר ליחידה'
+  unitPriceReqiuerdText:'חובה להזין מחיר ליחידה',
+  seeDetailsText:'ראה פרטים',
+  products:'מוצרים',
+  places:'מיקומים'
 };
 
 
