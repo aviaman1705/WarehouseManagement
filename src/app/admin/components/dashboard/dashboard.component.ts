@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { DashboardService } from '../../services/dashboard.service';
 import { Dashboard } from '../../models/dashboard';
 import { DataService } from 'src/app/shared/data.service';
+import { AppConfig, APP_CONFIG } from 'src/app/app-config.module';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +14,7 @@ export class DashboardComponent implements OnInit {
   dashboard: Dashboard = new Dashboard();
 
   constructor(
+    @Inject(APP_CONFIG) private config: AppConfig,
     private dashboardService: DashboardService,
     private data: DataService) { }
 

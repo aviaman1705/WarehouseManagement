@@ -25,6 +25,9 @@ export class AppConfig {
     countOverZeroText:string;
     unitPrice:string;
     unitPriceReqiuerdText:string;
+    seeDetailsText:string;
+    products:string;
+    places:string;
 }
 
 export const APP_DI_CONFIG: AppConfig = {
@@ -48,7 +51,10 @@ export const APP_DI_CONFIG: AppConfig = {
     countReqiuerdText:environment.countReqiuerdText,
     countOverZeroText:environment.titleReqiuerdText,
     unitPrice:environment.unitPrice,
-    unitPriceReqiuerdText:environment.unitPriceReqiuerdText
+    unitPriceReqiuerdText:environment.unitPriceReqiuerdText,
+    seeDetailsText:environment.seeDetailsText,
+    products:environment.products,
+    places:environment.places
 };
 
 @NgModule({
